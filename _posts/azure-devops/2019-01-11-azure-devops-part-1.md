@@ -6,7 +6,7 @@ author: Casey Mullineaux
 cover: '/images/posts/azure-devops/part1-image2.png'
 tags: arm azure devops
 ---
-It seems like on every blog or forum I read someone is talking about how the discipline of DevOps can *increase agility* and deliver value with an *increased velocity*. 
+It seems like on every blog or forum I read someone is talking about how the discipline of DevOps can "increase agility" and deliver value with an "increased velocity". 
 
 What I **don't** see a lot of, is someone explaining how to configure and use the tooling that makes that possible - especially in the context of deploying infrastructure to Azure via ARM. Hopefully I can help fill that gap.
 
@@ -65,7 +65,10 @@ Give the project a name and choose whether you want the project to be public or 
 
 That it! Told you it was simple! 
 
-Continue to Part 2: Source (coming soon!)
+Continue to [Part 2: Source]({% post_url /azure-devops/2019-03-01-azure-devops-part-2 %}) (coming soon!)
 
-- Part 1 - Getting Started
 - Part 2 - Souce Control
+- Part 3 - Builds (coming soon)
+- Part 4 - Releases (coming soon)
+- Part 5 - Testing infrastucture with Pester (coming soon)
+
