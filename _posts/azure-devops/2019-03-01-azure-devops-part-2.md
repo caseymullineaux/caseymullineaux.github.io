@@ -6,7 +6,8 @@ author: Casey Mullineaux
 cover: '/images/posts/azure-devops/part2/part2-image2.png'
 tags: arm azure devops
 ---
-In [part 1]({% post_url /azure-devops/2019-01-11-azure-devops-part-1 %})
+In [part 1]({% post_url /azure-devops/2019-01-11-azure-devops-part-1 %}) we got setup with a new Azure DevOps account. 
+
 The next thing we are going to need is a source control repo to store the ARM templates. A source control system, also called a version control system, allows developers to collaborate on code and track changes. It is an eseential tool when working in a team.
 
 With Git, each developer has a copy of the source repository, including all branch and history information, on their dev machine. Each developer works directly with their own local repository. Changes are shared between repositories as a separate step.
