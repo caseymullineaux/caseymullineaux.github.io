@@ -65,9 +65,12 @@ Give the project a name and choose whether you want the project to be public or 
 
 That it! Told you it was simple! 
 
-Continue to [Part 2: Source]({% post_url /azure-devops/2019-03-01-azure-devops-part-2 %}) (coming soon!)
+---
 
-- Part 2 - Souce Control
+Continue to [Part 2 - Source Control]({% post_url /azure-devops/2019-03-01-azure-devops-part-2 %})
+
+- Part 1 - Getting started with Azure DevOps
+- [Part 2 - Source Control]({% post_url /azure-devops/2019-03-01-azure-devops-part-2 %})
 - Part 3 - Builds (coming soon)
 - Part 4 - Releases (coming soon)
 - Part 5 - Testing infrastucture with Pester (coming soon)
