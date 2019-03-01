@@ -25,7 +25,7 @@ Azure DevOps is split up into 5 main areas:
 
 To keep things simple, i'm going to be focusing on the meat and potatoes of what Azure DevOps offers, which is Azure Repos and Azure Pipelines. 
 
-These two features allows us to store and manage ARM templates in source control, and deploy them into Azure automatically using a CI/CD pipeline.
+These two features allows us to store and manage ARM templates in source control, and deploy them into Azure automatically every time the code in the arm template changes using a CI/CD pipeline.
 
 # Getting started
 
@@ -35,16 +35,16 @@ Getting started is super easy and can be done in less than five minutes.
 
 Head to [dev.azure.com](https://dev.azure.com) and click **Start free** to create a new account.
 
-![image1](/images/posts/azure-devops/part1-image1.png)
+![image1](/images/posts/azure-devops/part1/part1-image1.png)
 
 Once you sign in with your Microsoft account, clicking continue will provision a new Azure DevOps instance your Azure tenancy. 
 
-![image2](/images/posts/azure-devops/part1-image2.png)
+![image2](/images/posts/azure-devops/part1/part1-image2.png)
 
 <p class="alert alert-info">
     <i class="fa fa-info-circle"></i> <strong>Info</strong><br>
         If you login to the Azure portal, you can see the resource that was provisioned by browsing to All services --> Azure DevOps organizations <br>
-    <img src="/images/posts/azure-devops/part1-image3.png">
+    <img src="/images/posts/azure-devops/part1/part1-image3.png">
 </p>
 
 ## Create a new project
@@ -55,19 +55,19 @@ Think of a "project" as a bucket that will contain all of your source code and b
 
 <p class="alert alert-success">
     <i class="fa fa-check-circle"></i> <strong>Tip</strong><br>
-     It is a good rule of thumb to create a new project for each application or system you want to manage via CI/CD.
+     It is a good rule of thumb to create a new project for each application or system you want to enable for CI/CD.
 </p>
 
 Give the project a name and choose whether you want the project to be public or private. In most cases, you'd want to keep your junk private.
 
-![image4](/images/posts/azure-devops/part1-image4.png)
+![image4](/images/posts/azure-devops/part1/part1-image4.png)
 > A subtle call out to [The Phoenix Project](https://www.amazon.com/Phoenix-Project-DevOps-Helping-Business/dp/1942788290?SubscriptionId=AKIAILSHYYTFIVPWUY6Q&tag=duckduckgo-d-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=1942788290) - recommend you pick up a copy!
 
 That it! Told you it was simple! 
 
----
+Continue to [Part 2]({% post_url /azure-devops/2019-03-01-azure-devops-part-2 %}) where I'll show you how to setup a new Git repo and make your first code commit.
 
-Continue to [Part 2 - Source Control]({% post_url /azure-devops/2019-03-01-azure-devops-part-2 %})
+---
 
 - Part 1 - Getting started with Azure DevOps
 - [Part 2 - Source Control]({% post_url /azure-devops/2019-03-01-azure-devops-part-2 %})
