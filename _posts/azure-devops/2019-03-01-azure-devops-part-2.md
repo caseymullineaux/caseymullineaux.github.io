@@ -3,7 +3,7 @@ layout: post
 title: 'Infrastructure as code with Azure DevOps - Part 2: Source Control'
 date: 2019-03-01
 author: Casey Mullineaux
-cover: '/images/posts/azure-devops/part2/part2-image2.png'
+cover: '/images/posts/azure-devops/part2/part2-animation1.gif'
 tags: arm azure devops
 ---
 In [Part 1]({% post_url /azure-devops/2019-01-11-azure-devops-part-1 %}) we setup a new Azure DevOps account. The next thing we are going to need is a source control repo to store the ARM templates. 

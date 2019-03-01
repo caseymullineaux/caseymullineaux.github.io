@@ -3,7 +3,7 @@ layout: post
 title: 'Infrastructure as code with Azure DevOps - Part 1: Getting started'
 date: 2019-01-11
 author: Casey Mullineaux
-cover: '/images/posts/azure-devops/part1-image2.png'
+cover: '/images/posts/azure-devops/part1/part1-image2.png'
 tags: arm azure devops
 ---
 It seems like on every blog or forum I read someone is talking about how the discipline of DevOps can "increase agility" and deliver value with an "increased velocity". 
