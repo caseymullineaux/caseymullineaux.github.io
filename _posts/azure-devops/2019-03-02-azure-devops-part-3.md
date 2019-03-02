@@ -87,8 +87,6 @@ The **publishing** task will take all of the files in a given directory, zip the
 2. Enter a save comment and click **Save and queue**
 3. Click the **build number** to the build summary
 
-The build summary shows all the commands that are being executed on the build agent in near real time. 
-
 When the build completes, you can view the contents of the artifact that was produced (`drop.zip`) by clicking the **Artifacts** menu in the top right.
 
 <video width="800" height="600" controls> 
@@ -97,6 +95,10 @@ Your browser does not support the video tag.
 </video>
 
 ## Build summary 
+
+The build summary shows all the commands that are being executed on the build agent in near real time. 
+
+![build summary](/images/posts/azure-devops/part3/part3-buildsummary.png)
 
 Let's go one level deeper in the layers of abstraction and break down what's happening on the agent.
 
@@ -161,9 +163,9 @@ And lastly, this task sets the status of the build in Azure DevOps depending on 
 
 And there you have it! A build pipeline that publishes an ARM template as an artifact ready to be consumed by a release pipeline. It may seem a lot of effort for not much reward, but the build process will begin to increase in value when we start adding some tests to the pipeline.
 
----
+Continue to Part 4 - Release Pipeline (coming soon) where we will deploy the ARM template into Azure.
 
-Continue to Part 4 - Releases (coming soon) 
+---
 
 - [Part 1 - Getting Started with Azure DevOps]({% post_url /azure-devops/2019-01-11-azure-devops-part-1 %})
 - [Part 2 - Source Control]({% post_url /azure-devops/2019-03-01-azure-devops-part-2 %})
