@@ -3,7 +3,7 @@ layout: post
 title: 'Infrastructure as code with Azure DevOps - Part 3: Build Pipeline'
 date: 2019-03-02
 author: Casey Mullineaux
-cover: '/images/posts/azure-devops/part2/part2-animation1.gif'
+cover: '/images/posts/azure-devops/part3/part3-buildsummary.png'
 tags: arm azure devops
 ---
 A build pipeline is typically used during software development to "build" the application from source code. In basic terms this means taking the source code, running it through a compiler, and producing an **artifact**. For example, if you take some C# source and run it through the .NET compiler, you'd get an executable or dll as an artifact at the other end. This is the "Continuous Integration" or "CI" part of CI/CD.
