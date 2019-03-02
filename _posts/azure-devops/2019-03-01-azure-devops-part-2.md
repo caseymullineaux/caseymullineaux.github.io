@@ -267,6 +267,6 @@ Continue to Part 3 - Builds (coming soon)
 
 - [Part 1 - Getting Started with Azure DevOps]({% post_url /azure-devops/2019-01-11-azure-devops-part-1 %})
 - Part 2 - Souce Control
-- Part 3 - Builds (coming soon)
+- [Part 3 - Build pipeline]({% post_url /azure-devops/2019-03-02-azure-devops-part-3 %})
 - Part 4 - Releases (coming soon)
 - Part 5 - Testing infrastucture with Pester (coming soon)
