@@ -8,7 +8,7 @@ tags: arm azure devops
 ---
 In [Part 1]({% post_url /azure-devops/2019-01-11-azure-devops-part-1 %}) we setup a new Azure DevOps account. The next thing we are going to need is a source control repo to store the ARM templates. 
 
-A source control system, also called a version control system, allows developers to collaborate on code and track changes. It is an eseential tool when working in a team. With Git, each developer has a copy of the source repository, including all branch and history information, on their dev machine. Each developer works directly with their own local repository. Changes are shared between repositories as a separate step.
+A source control system, also called a version control system, allows developers to collaborate on code and track changes. It is an essential tool when working in a team. With Git, each developer has a copy of the source repository, including all branch and history information, on their dev machine. Each developer works directly with their own local repository. Changes are shared between repositories as a separate step.
 
 # Create a repo
 
@@ -25,12 +25,12 @@ Once initialized, you'll be redirected to the files view of the newly initialize
 
 # Clone the repo
 
-Next we need to clone the repo to our local machine so we can add and edit files in the repoistory.
+Next we need to clone the repo to our local machine so we can add and edit files in the repository.
 Create a directory structure on your machine that will be the home of your code. In my case, i'll be using `C:\source\`.
 
 <p class="alert alert-success">
     <i class="fa fa-check-circle"></i> <strong>Tip</strong><br>
-     Put some thought into how you want to structure your local file system for housing your source code. A good folder structure will save you a lot of time and confustion when working on multiple projects at once.
+     Put some thought into how you want to structure your local file system for housing your source code. A good folder structure will save you a lot of time and confusion when working on multiple projects at once.
 </p>
 
 Back in Azure DevOps, click the **Clone** button in the top right hand corner, then click the **Copy** button to copy the URL of the repo to your clipboard.
@@ -67,7 +67,7 @@ So why do something the hard way if there's an easy way to do it?
 
 <p class="alert alert-success">
     <i class="fa fa-check-circle"></i> <strong>Learn to think about abstractions</strong><br>
-     I strongly believe that it is incredibly important to learn to do things the "hard" way. That doesn't mean you need to do it the hard way all the time, but the act of learning a <i><a href="https://www.hanselman.com/blog/PleaseLearnToThinkAboutAbstractions.aspx">deeper level of abstraction</a></i> by questioning <i>how</i> things work, significantly aids in the <strong>fundemental understanding</strong> of a new topic of technology. 
+     I strongly believe that it is incredibly important to learn to do things the "hard" way. That doesn't mean you need to do it the hard way all the time, but the act of learning a <i><a href="https://www.hanselman.com/blog/PleaseLearnToThinkAboutAbstractions.aspx">deeper level of abstraction</a></i> by questioning <i>how</i> things work, significantly aids in the <strong>fundamental understanding</strong> of a new topic of technology. 
 </p>
 
 ---
@@ -194,7 +194,7 @@ Back in Azure DevOps, refreshing the file view shows that the file has been adde
 
 # Pushing changes - the easy way
 
-VSCode has native support for Git built right in. All of the actions we completed on the command line are *abstracted away* with a few simple clicks. VSCode automatically knows about the repo from the files that were created during the repos initilization. 
+VSCode has native support for Git built right in. All of the actions we completed on the command line are *abstracted away* with a few simple clicks. VSCode automatically knows about the repo from the files that were created during the repos initialization. 
 
 ---
 
@@ -249,11 +249,11 @@ The `status icon` in the bottom toolbar now changes to show we have one outgoing
 
 ![image9](/images/posts/azure-devops/part2/part2-image9.png)
 
-Finally, we can now **push** the changes up to Azure DevOps by clicking the elipses (`...`) and selecting **push** from the drop down menu.
+Finally, we can now **push** the changes up to Azure DevOps by clicking the ellipses (`...`) and selecting **push** from the drop down menu.
 
 ![image10](/images/posts/azure-devops/part2/part2-image10.png)
 
-Alternatively, you can **synchronize** changes (simultanious push and pull) by clicking the `status icon` in the bottom toolbar.
+Alternatively, you can **synchronize** changes (simultaneous push and pull) by clicking the `status icon` in the bottom toolbar.
 
 <p class="alert alert-success">
     <i class="fa fa-check-circle"></i> <strong>Pro tip!</strong><br>
@@ -266,7 +266,7 @@ Alternatively, you can **synchronize** changes (simultanious push and pull) by c
 Continue to Part 3 - Builds (coming soon) 
 
 - [Part 1 - Getting Started with Azure DevOps]({% post_url /azure-devops/2019-01-11-azure-devops-part-1 %})
-- Part 2 - Souce Control
+- Part 2 - Source Control
 - [Part 3 - Build pipeline]({% post_url /azure-devops/2019-03-02-azure-devops-part-3 %})
 - Part 4 - Releases (coming soon)
 - Part 5 - Testing the build with Pester (coming soon)
