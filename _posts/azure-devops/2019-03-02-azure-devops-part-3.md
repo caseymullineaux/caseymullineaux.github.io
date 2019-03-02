@@ -6,11 +6,14 @@ author: Casey Mullineaux
 cover: '/images/posts/azure-devops/part3/part3-buildsummary.png'
 tags: arm azure devops
 ---
-A build pipeline is typically used during software development to "build" the application from source code. In basic terms this means taking the source code, running it through a compiler, and producing an **artifact**. For example, if you take some C# source and run it through the .NET compiler, you'd get an executable or dll as an artifact at the other end. This is the "Continuous Integration" or "CI" part of CI/CD.
+A build pipeline is typically used during software development to "build" the application from source code. In basic terms, this means taking the source code, running it through a compiler and producing an **artifact**. For example, if you take some C# source and run it through the .NET compiler, you'd get an executable or dll as an artifact at the other end. 
 
-One of the other primary functions of the build stage is to **test** the code. During software development, developers will create hundreds, sometimes thousands of tests for their code to ensure it's functioning correctly whenever a change is made. Executing tests during the build phase means that when a test fails, the build phase will also fail, ensuring that "unsafe" code never passes through to the next stages of software release. This is known as "breaking the build".
+One of the other primary functions of the build stage is to **test** the code. During software development, developers will create hundreds, sometimes thousands of tests for their code to ensure it's functioning correctly whenever a change is made. Executing tests during the build phase means that when a test fails, the build phase will also fail, ensuring that "unsafe" code never passes through to the next stages of software release. This is often referred to as "breaking the build".
 
-When it comes to ARM templates, all we have is a json document. There's nothing to compile. When the build phase completes successfully, the json files are **published** unmodified as the output **artifacts** which are then made available to the next phase - release.
+Automating the testing of code and the compilation of code, known as "Continuous Integration" or "CI".
+___ 
+
+When it comes to ARM templates, all we have as our code is a json document. There's nothing to compile. When the build phase completes the json files are **published**, unmodified, as the output **artifacts** which are then made available to the next phase - Release.
 
 # What are we going to do?
 
@@ -158,6 +161,64 @@ Another clean up task relating to the processes running on the agent.
 And lastly, this task sets the status of the build in Azure DevOps depending on the result of all the commands executed in the build.
 
 ![image11](/images/posts/azure-devops/part3/part3-image11.png)
+
+# Triggers
+
+A build **trigger** is a condition that is met in order to automatically start a build. These can be one of three things:
+1. A change in a source control branch (CI)
+2. A specific time and date (schedule)
+3. When another build completes
+
+## Create a CI trigger
+
+In order to create a build automatically whenever our source code changes, we'll need to configure a CI trigger on the build we just created.
+
+1. Navigate to: Pipelines --> Builds
+2. Select the build, and click **Edit**
+3. Click the **Triggers** tab
+4. Under `Continuous Integration` click the **Enable continuous integration** checkbox
+5. Click Save & Queue --> Save
+6. Enter a save comment and click **Save**
+
+<video width="800" height="600" controls> 
+<source src="/images/posts/azure-devops/part3/part3-video3.mkv">
+Your browser does not support the video tag.
+</video>
+
+Done! It's that easy.
+
+Now lets try it out. 
+1. Back in VSCode, edit the ARM template to add a comment to the storage account.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Testing CI trigger on build pipeline",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "phoenixprojectstg9001",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2018-07-01",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {}
+        }
+    ],
+    "outputs": {}
+}
+```
+2. Commit the change with a commit message.  
+![image12](/images/posts/azure-devops/part3/part3-image12.png)
+3. Push the change to the repo.
+4. Back in Azure DevOps, click Pipelines --> Builds
+5. Notice a new build has started with the title of the commit message  
+![image13](/images/posts/azure-devops/part3/part3-image13.png)
 
 ---
 
