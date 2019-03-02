@@ -11,7 +11,9 @@ A build pipeline is typically used during software development to "build" the ap
 One of the other primary functions of the build stage is to **test** the code. During software development, developers will create hundreds, sometimes thousands of tests for their code to ensure it's functioning correctly whenever a change is made. Executing tests during the build phase means that when a test fails, the build phase will also fail, ensuring that "unsafe" code never passes through to the next stages of software release. This is often referred to as "breaking the build".
 
 Automating the testing of code and the compilation of code, known as "Continuous Integration" or "CI".
+
 ___ 
+
 
 When it comes to ARM templates, all we have as our code is a json document. There's nothing to compile. When the build phase completes the json files are **published**, unmodified, as the output **artifacts** which are then made available to the next phase - Release.
 
@@ -24,7 +26,7 @@ In this post, I will show you how to:
 
 # Create a build pipeline
 
-Now that we have a git repo created with and ARM template committed, it's time to configure the build pipeline on Azure DevOps.
+Now that we have a git repo [that we created in Part 1]({% post_url /azure-devops/2019-01-11-azure-devops-part-1 %}) with and ARM template committed, it's time to configure the build pipeline on Azure DevOps.
 
 1. Navigate to: *Pipelines --> Builds --> New pipeline*
 2. On the next page we need to select the source for the build, which in our case is Azure Repos Git.
@@ -39,9 +41,10 @@ Your browser does not support the video tag.
 
 # Build Pipeline
 
-The first box at the top of this page labelled **Pipeline** is where we configure the global settings of this build pipeline. We can set it's name, the agent pool the builds will execute on.
+The first box at the top of this page that is labelled **Pipeline**, is where we configure the global settings of this build pipeline. We can set it's name, the agent pool the builds will execute on.
 
-1. Give the build a name and leave the Agent pool as "Hosted VS2017"
+1. Give the build a name 
+2. Leave the Agent pool as "Hosted VS2017"
 
 ![image01](/images/posts/azure-devops/part3/part3-image1.png)
 
@@ -54,7 +57,7 @@ It is possible to download and install the agent on your own infrastructure if y
 
 ## Agent job settings
 
-Agent jobs contain a list of **tasks** that we want to execute on the build agent. Just like the `pipelines` box, clicking on the `agent job` box allows us to configure the settings for the agent job.
+Agent jobs contain a list of **tasks** that we want to execute on the build agent. Just like the `pipeline` box, clicking on the `agent job` box allows us to configure the settings for the agent job.
 
 1. Give the agent job a name and leave all other settings as default
 
@@ -70,13 +73,13 @@ For deploying an ARM template, we need two build tasks:
 
 ### Copy Files
 
-The first thing we need to do in our build phase is to copy the ARM template files to our **staging directory**. The staging directory is a special temporary location that is the agent during the build phase and can be referenced by other tasks in the agent job. 
+The first thing we need to do in our build phase is to copy the ARM template files to our **staging directory**. The staging directory is a special temporary location that is the available to the agent during the build phase and can be referenced by other tasks in the agent job. 
 
 1. Click the `+` icon to add a new task
 2. Add the **Copy Files** task
 3. Leave the **Source folder** blank. This will default to the root directory of our git repo
 4. Enter ***.json** in the contents field. This will grab all json files located in the source folder.
-5. Enter `$(Build.ArtifactStagingDirectory)` in the target folder. This is a special variable used to indicate the location of the staging directory that is accessible by the build agents
+5. Enter `$(Build.ArtifactStagingDirectory)` in the target folder. This is a [special variable](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml) used to indicate the location of the staging directory that is accessible by the build agents
 
 ### Publish pipeline artifact
 
@@ -85,7 +88,7 @@ The **publishing** task will take all of the files in a given directory, zip the
 1. Click the `+` icon to add a new task
 2. Add the **Publish Pipeline Artifact** task
 3. Configure the name of the artifact if you want. I'll leave mine as default (`drop`)
-4. Enter `$(Build.ArtifactStagingDirectory)` as the path to publish. This is the directory that our build agents copied the json files in the previous step
+4. Enter `$(Build.ArtifactStagingDirectory)` as the path to publish. This is the directory where our build agents copied the ARM template in the previous step
 5. Click **Save & queue**
 2. Enter a save comment and click **Save and queue**
 3. Click the **build number** to the build summary
