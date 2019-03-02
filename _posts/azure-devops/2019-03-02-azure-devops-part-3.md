@@ -173,7 +173,7 @@ A build **trigger** is a condition that is met in order to automatically start a
 
 In order to create a build automatically whenever our source code changes, we'll need to configure a CI trigger on the build we just created.
 
-1. Navigate to: Pipelines --> Builds
+1. Navigate to: **Pipelines --> Builds**
 2. Select the build, and click **Edit**
 3. Click the **Triggers** tab
 4. Under `Continuous Integration` click the **Enable continuous integration** checkbox
@@ -215,8 +215,8 @@ Now lets try it out.
 ```
 2. Commit the change with a commit message.  
 ![image12](/images/posts/azure-devops/part3/part3-image12.png)
-3. Push the change to the repo.
-4. Back in Azure DevOps, click Pipelines --> Builds
+3. Push the change to the repo
+4. Back in Azure DevOps, navigate to: **Pipelines --> Builds**
 5. Notice a new build has started with the title of the commit message  
 ![image13](/images/posts/azure-devops/part3/part3-image13.png)
 
