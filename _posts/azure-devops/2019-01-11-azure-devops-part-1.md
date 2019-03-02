@@ -73,5 +73,6 @@ Continue to [Part 2]({% post_url /azure-devops/2019-03-01-azure-devops-part-2 %}
 - [Part 2 - Source Control]({% post_url /azure-devops/2019-03-01-azure-devops-part-2 %})
 - [Part 3 - Build pipeline]({% post_url /azure-devops/2019-03-02-azure-devops-part-3 %})
 - Part 4 - Releases (coming soon)
-- Part 5 - Testing infrastucture with Pester (coming soon)
+- Part 5 - Testing the build with Pester (coming soon)
+- Part 6 - Testing the release with Pester (coming soon)
 
