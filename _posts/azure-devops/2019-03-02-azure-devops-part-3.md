@@ -222,7 +222,7 @@ Now lets try it out.
 
 ---
 
-And there you have it! A build pipeline that publishes an ARM template as an artifact ready to be consumed by a release pipeline. It may seem a lot of effort for not much reward, but the build process will begin to increase in value when we start adding some tests to the pipeline.
+And there you have it! A build pipeline that publishes an ARM template as an artifact ready to be consumed by a release pipeline, that is automatically triggered whenever the ARM template is changed. It may seem a lot of effort for not much reward, but the build process will begin to increase in value when we start adding some tests to the pipeline.
 
 Continue to Part 4 - Release Pipeline (coming soon) where we will deploy the ARM template into Azure.
 
