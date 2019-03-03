@@ -90,8 +90,8 @@ The **publishing** task will take all of the files in a given directory, zip the
 3. Configure the name of the artifact if you want. I'll leave mine as default (`drop`)
 4. Enter `$(Build.ArtifactStagingDirectory)` as the path to publish. This is the directory where our build agents copied the ARM template in the previous step
 5. Click **Save & queue**
-2. Enter a save comment and click **Save and queue**
-3. Click the **build number** to the build summary
+6. Enter a save comment and click **Save and queue**
+7. Click the **build number** to the build summary
 
 When the build completes, you can view the contents of the artifact that was produced (`drop.zip`) by clicking the **Artifacts** menu in the top right.
 
