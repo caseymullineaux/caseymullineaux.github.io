@@ -685,7 +685,7 @@ When my quarterly bill comes in, I can filter to the date ranges on the bill and
 
 One of the cool feature so the Tesla Powerwall is that it comes with a phone app that lets you keep an eye on everything. Here I can see a a stacked area graph of my consumption, production and import. The only downside is you can only see the data for today, or yesterday - there's no history.
 
-<img src="/images/posts/monitoring-my-solar-system/teslapowerwallhistory.png" height="400px">
+![teslapowerwall](/images/posts/monitoring-my-solar-system/teslapowerwallhistory.png)
 
 Since I found that particular graph very helpful and i'm already logging all the historical data, I replicated the graph in PowerBI with a full history.
 
