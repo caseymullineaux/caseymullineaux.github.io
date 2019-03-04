@@ -54,7 +54,7 @@ Circling back around to the problem that started me on this path, I knew that to
 
 ### Authenticating 
 
-I followed the [API documentation](https://www.solaredge.com/sites/default/files/se_monitoring_api.pdf) and generated an API key. The process was pretty simple. I just logged in with the same credentials I configured for the mobile app, and genrated a new key.
+I followed the [API documentation](https://www.solaredge.com/sites/default/files/se_monitoring_api.pdf) and generated an API key. The process was pretty simple. I just logged in with the same credentials I configured for the mobile app, and generated a new key.
 
 ![GenerateSolarEdgeApiKey](/images/posts/monitoring-my-solar-system/GenerateSolarEdgeApiKey.png)
 
@@ -200,7 +200,7 @@ $siteID = '12345'
 $apiKey = 'ABCDEFGHIJKLMNOPQRSTUVXYZ123456789=='
 
 Function Get-EnergyDetailHistory {
-    # Get the energy details on a per-month bassis.
+    # Get the energy details on a per-month basis.
     param (
         [Parameter(Mandatory = $True)]
         [DateTime]$StartDate,
@@ -320,7 +320,7 @@ My system was only installed in September so I only have 3 months worth of data,
 
 Add those up, and we're talking roughly **48% efficiency** when compared to the expected estimate.
 
-Although I'm dealing with averages and estimations, these two values should be close together. If I allow say, a +- 50 kWh degree of variance to deal with the inaccuracy, I can still use the amount of variance between these two averages as an indicator of how terrribly my solar generation is performing.
+Although I'm dealing with averages and estimations, these two values should be close together. If I allow say, a +- 50 kWh degree of variance to deal with the inaccuracy, I can still use the amount of variance between these two averages as an indicator of how terribly my solar generation is performing.
 
 These figures are going to be my reference point for all my data analysis, so I'll call that my **production baseline**. I created a new table in the SQL database ..
 
@@ -445,7 +445,7 @@ For a bit of added security, I moved the sensitive information (database creds, 
     ],
     "properties": {
         "value": "[concat('\"', variables('sqlConnectionString'), '\"')]",
-        "description": "The SQL Databse connection string.",
+        "description": "The SQL Database connection string.",
         "isEncrypted": true
     }
 },
@@ -491,7 +491,7 @@ Now it's all working as expected, nothing left to do but schedule the runbook to
 
 ## Adding power consumption data
 
-Now that i'm logging, updating and graphing my solar production data, I wanted to do the same with consumption (what my home is using) and purcahsed (what i'm importing from the power grid). Both of these metrics are exposed via the SolarEdge API.
+Now that i'm logging, updating and graphing my solar production data, I wanted to do the same with consumption (what my home is using) and purchased (what i'm importing from the power grid). Both of these metrics are exposed via the SolarEdge API.
 
 I repeated the steps I took to get this far for each one of the other metrics.
 1. Create a table in the database 
@@ -500,7 +500,7 @@ I repeated the steps I took to get this far for each one of the other metrics.
 
 ## Adding cost analysis and insights
 
-Since the SolarEdge API keeps track of how much power i'm importing from the grid and at what times, I thought it would be cool to use this information in conjunction with tarrif rated costs on my electric bills. This will allow me to put a dollar value against each one of the reading values and provide the avenue for some interesting cost insights.
+Since the SolarEdge API keeps track of how much power i'm importing from the grid and at what times, I thought it would be cool to use this information in conjunction with tariff rated costs on my electric bills. This will allow me to put a dollar value against each one of the reading values and provide the avenue for some interesting cost insights.
 
 After some quick googling, I was able to find my energy companies price fact sheet, which looks like this:
 
@@ -510,20 +510,20 @@ As you can see above, with my energy plan i'm charged depending on the hour of t
 
 ### RateCard
 
-This one shows how much i'm charge for each of the different tarrifs, represented as dollars.
+This one shows how much i'm charge for each of the different tariffs, represented as dollars.
 
-| tarrif      | rate   |
+| tariff      | rate   |
 | ----------- | ------ |
 | DailySupply | 1.0604 |
 | Off-Peak    | 0.1676 |
 | Peak        | 0.6039 |
 | Shoulder    | 0.2746 |
 
-### Tarrifs
+### Tariffs
 
-And this one shows me each 15 minute increment of the day tranlsated into it's appropriate tarrif. I also added an `isWeekend` boolean column as the weekends have a different rate. Luckily, public holidays use the weekend rate so I dont need to create a distinction between the two.
+And this one shows me each 15 minute increment of the day translated into it's appropriate tariff. I also added an `isWeekend` boolean column as the weekends have a different rate. Luckily, public holidays use the weekend rate so I dont need to create a distinction between the two.
 
-| hour     | isWeekend | tarrif   |
+| hour     | isWeekend | tariff   |
 | -------- | --------- | -------- |
 | 00:00:00 | False     | Off-Peak |
 | 00:15:00 | False     | Off-Peak |
@@ -548,7 +548,7 @@ And this one shows me each 15 minute increment of the day tranlsated into it's a
 
 And repeated the same thing for weekend rates
 
-| hour     | isWeekend | tarrif   |
+| hour     | isWeekend | tariff   |
 | -------- | --------- | -------- |
 | 00:00:00 | True      | Off-Peak |
 | ...      | ....      | ...      |
@@ -564,21 +564,21 @@ I created a couple extra tables in my SQL Database ..
 ```sql
 CREATE TABLE dbo.RateCard
 (
-    tarrif VARCHAR(50) NOT NULL PRIMARY KEY,
+    tariff VARCHAR(50) NOT NULL PRIMARY KEY,
     rate DECIMAL (10,4) NOT NULL
 );
 
-CREATE TABLE dbo.Tarrif
+CREATE TABLE dbo.Tariff
 (
     hour TIME NOT NULL,
     isWeekend BIT NOT NULL,
-    tarrif VARCHAR(50),
+    tariff VARCHAR(50),
 )
 ```
 
 And seeded them with the table data
 ```MSSQL
--- Seed tarrif rates
+-- Seed tariff rates
 TRUNCATE TABLE RateCard;
 INSERT INTO RateCard
 VALUES
@@ -587,9 +587,9 @@ VALUES
     ('Shoulder', '0.27456'),
     ('DailySupply', '1.0604'); 
     
--- Seed Tarrif table
-TRUNCATE TABLE  Tarrif;
-INSERT INTO Tarrif
+-- Seed Tariff table
+TRUNCATE TABLE  Tariff;
+INSERT INTO Tariff
 VALUES
     ('00:00:00', '0', 'Off-Peak'),
     ('00:15:00', '0', 'Off-Peak'),
@@ -605,9 +605,9 @@ VALUES
 ;
 ```
 
-Since all this pricing information is only relevant to my purchase data, I modified the `PurchaseHistory` table to add `isWeekend`, `tarrif` and `rate` columns.
+Since all this pricing information is only relevant to my purchase data, I modified the `PurchaseHistory` table to add `isWeekend`, `tariff` and `rate` columns.
 
-Before populating the database with the pricing information, I needed a way to determine if any particular day was a public holiday, as different rates would apply. After a little googling, I found that the [Australian Govenrment has an API](https://data.gov.au/dataset/australian-holidays-machine-readable-dataset/resource/31eec35e-1de6-4f04-9703-9be1d43d405b) that I can hit to do exactly that.
+Before populating the database with the pricing information, I needed a way to determine if any particular day was a public holiday, as different rates would apply. After a little googling, I found that the [Australian Government has an API](https://data.gov.au/dataset/australian-holidays-machine-readable-dataset/resource/31eec35e-1de6-4f04-9703-9be1d43d405b) that I can hit to do exactly that.
 
 I added a new powershell function called `Update-PurchaseHistory` to my module that will do the following:
 1. Grab and store all public holidays in a variable
@@ -622,16 +622,16 @@ Function Update-PurchaseHistoryRates {
     $HolidayUri = 'https://data.gov.au/api/3/action/datastore_search?resource_id=31eec35e-1de6-4f04-9703-9be1d43d405b'
     $Holidays = (Invoke-RestMethod -Uri $HolidayUri -Method GET).result.records | Where-Object 'Applicable To' -in ('NSW', 'NAT')
 
-    # Get the rate card & tarrif information
+    # Get the rate card & Tariff information
     $query = @"
-        SELECT tarrif.hour, tarrif.tarrif, tarrif.isWeekend, RateCard.Rate 
-        FROM tarrif
-        INNER JOIN RateCard ON tarrif.tarrif = ratecard.tarrif
+        SELECT Tariff.hour, Tariff.Tariff, Tariff.isWeekend, RateCard.Rate 
+        FROM Tariff
+        INNER JOIN RateCard ON Tariff.Tariff = RateCard.tariff
 "@
-    $TarrifData = Invoke-Sqlcmd -ConnectionString $ConnectionString -Query $query
+    $TariffData = Invoke-Sqlcmd -ConnectionString $ConnectionString -Query $query
 
     # Get the rows that have empty values
-    $query = "SELECT date, isWeekend, tarrif, rate FROM PurchaseHistory WHERE isWeekend IS NULL AND tarrif IS NULL AND rate IS NULL"
+    $query = "SELECT date, isWeekend, Tariff, rate FROM PurchaseHistory WHERE isWeekend IS NULL AND Tariff IS NULL AND rate IS NULL"
     $results = Invoke-Sqlcmd -Query $query -ConnectionString $ConnectionString
 
     # Loop through each row in the results returned
@@ -643,15 +643,15 @@ Function Update-PurchaseHistoryRates {
             $isWeekend = $true
         } 
         # Determine if the date is a public holiday
-        If ($row.date.Tostring('yyyyMMdd') -in $holidays.Date ) {
+        If ($row.date.ToString('yyyyMMdd') -in $holidays.Date ) {
             $isWeekend = $True  
         }
 
         # Get the rate information for the date/time
-        $rate = $TarrifData | Where-Object { ($_.hour -match $row.date.ToString('HH:mm:ss')) -and ($_.isWeekend -eq $isWeekend) }
+        $rate = $TariffData | Where-Object { ($_.hour -match $row.date.ToString('HH:mm:ss')) -and ($_.isWeekend -eq $isWeekend) }
         
         # Update the table with the information
-        $query = "UPDATE PurchaseHistory SET isWeekend = '$isWeekend',  tarrif = '$($rate.tarrif)', rate = '$($rate.rate)' WHERE date = '$($row.date)' "
+        $query = "UPDATE PurchaseHistory SET isWeekend = '$isWeekend',  Tariff = '$($rate.tariff)', rate = '$($rate.rate)' WHERE date = '$($row.date)' "
         Invoke-Sqlcmd -ConnectionString $ConnectionString -Query $query
     }
 }
@@ -671,7 +671,7 @@ I aded a filter to show me only the most recent 30 days.
 
 ## Cost
 
-The cost report displays a stacked bar graph of the `PurchaseHistory` table. Each coloured segment in the bars represents the different tarrifs i'm charged for (Peak, Off-Peak, Shoulder). The yellow line that moves through each bar is the total dollar value for that day, calcluated like this:
+The cost report displays a stacked bar graph of the `PurchaseHistory` table. Each coloured segment in the bars represents the different Tariffs i'm charged for (Peak, Off-Peak, Shoulder). The yellow line that moves through each bar is the total dollar value for that day, calculated like this:
 ```
 ((Total Peak kwH * Peak Rate) + (Total Off-Peak kwH * Off-Peak Rate) + (Total Shoulder kWh * Shoulder Rate)) + Daily Supply Charge
 ```
@@ -691,9 +691,9 @@ Since I found that particular graph very helpful and i'm already logging all the
 
 ![energy-history](/images/posts/monitoring-my-solar-system/energy-history.png)
 
-This graph is very useful for being able to track the performance of the system over time. There's something quite satasfying about seeing multiple days in a row where I was totally self sufficient on power.
+This graph is very useful for being able to track the performance of the system over time. There's something quite satisfying about seeing multiple days in a row where I was totally self sufficient on power.
 
 # <a name="conclusion"></a>Conclusion
 
-It took a little bit of work, but i'm very pleased with the results. By granting myself such granular transparancy into my energy production and consumption, I've taken away the layer of implicit trust granted to the vendor and the electric company. This allows me to not only keep those guys honest, but also gives me a way that I can have impactful change on my electricity bills.
+It took a little bit of work, but i'm very pleased with the results. By granting myself such granular transparency into my energy production and consumption, I've taken away the layer of implicit trust granted to the vendor and the electric company. This allows me to not only keep those guys honest, but also gives me a way that I can have impacting change on my electricity bills.
 
