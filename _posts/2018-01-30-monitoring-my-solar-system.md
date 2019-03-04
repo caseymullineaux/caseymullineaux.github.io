@@ -35,6 +35,7 @@ Using this data, I created PowerBI graphs that show me:
 - How the solar system is currently performing
 - How the solar generation effects the cost of my electricity bills
 - A filterable history that allows me to identify trends
+- Forecasted costs of my energy bills
 
 # <a name="my-solar-setup"></a>My solar setup
 
