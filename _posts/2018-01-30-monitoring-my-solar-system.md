@@ -310,6 +310,7 @@ GROUP BY DATEPART(MONTH,date)
 ```
 
 My system was only installed in September so I only have 3 months worth of data, but it's enough to draw a conclusion... 
+
 | Month | Generated (kWh) | Estimated (kwH) |
 | ----- | --------------- | --------------- |
 | 09    | 372.09          | 733             |
