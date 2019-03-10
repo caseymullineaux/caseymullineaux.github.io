@@ -86,7 +86,7 @@ The first thing we need to do in our build phase is to copy the ARM template fil
 The **publishing** task will take all of the files in a given directory, zip them up, and make them available to the release pipeline as an **artifact**. By default, this is placed in a directory called `drop`.
 
 1. Click the `+` icon to add a new task
-2. Add the **Publish Pipeline Artifact** task
+2. Add the **Publish Artifact** task
 3. Configure the name of the artifact if you want. I'll leave mine as default (`drop`)
 4. Enter `$(Build.ArtifactStagingDirectory)` as the path to publish. This is the directory where our build agents copied the ARM template in the previous step
 5. Click **Save & queue**
@@ -141,9 +141,9 @@ This is the first task we configured in the agent job. We can see that it copies
 
 ![image07](/images/posts/azure-devops/part3/part3-image7.png)
 
-### Publish Pipeline Artifact
+### Publish Artifact: drop
 
-The second task configured in agent job. We can see that the `Publish Pipeline Artifact` task uploads the directory we specified in the task's configuration (staging directory) to the **drop service** as a **pipeline artifact**.
+This is the second task that we configured in the agent job. We can see that the `Publish  Artifact: drop` task uploads the directory we specified in the task's configuration (staging directory) to a new file container hosted in Azure DevOps. This is a special location that is accessible by the release pipeline. Also notice how this *specific* artifact is also associated with this *specific* build.
 
 ![image08](/images/posts/azure-devops/part3/part3-image8.png)
 
@@ -164,6 +164,13 @@ Another clean up task relating to the processes running on the agent.
 And lastly, this task sets the status of the build in Azure DevOps depending on the result of all the commands executed in the build.
 
 ![image11](/images/posts/azure-devops/part3/part3-image11.png)
+
+### Artifact
+
+When the build completes successfully, you can explore the artifacts that have been created by clicking the **Artifacts** menu in the top right of the build screen.
+
+![image12](/images/posts/azure-devops/part3/part3-image12.png)
+
 
 # Triggers
 
@@ -217,11 +224,11 @@ Now lets try it out.
 }
 ```
 2. Commit the change with a commit message.  
-![image12](/images/posts/azure-devops/part3/part3-image12.png)
+![image13](/images/posts/azure-devops/part3/part3-image13.png)
 3. Push the change to the repo
 4. Back in Azure DevOps, navigate to: **Pipelines --> Builds**
 5. Notice a new build has started with the title of the commit message  
-![image13](/images/posts/azure-devops/part3/part3-image13.png)
+![image14](/images/posts/azure-devops/part3/part3-image14.png)
 
 ---
 
