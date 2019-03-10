@@ -231,7 +231,7 @@ $(document).ready(function () {
      * Copy and copyright
      */
     function setClipboardData(str) {
-        str += '\n\nCopywrite belongs to the author。\nFor commercial reprint, please contact the author for authorization.,Please indicate the source for non-commercial reprint.\nSource: ' + location.href;
+        str += '\n\nIf you like my stuff, please help me out and link back to the source.\nSource: ' + location.href;
         $('.post-content').on('copy', function (e) {
             var data = window.clipboardData || e.originalEvent.clipboardData;
             data.setData('text/plain', str);
