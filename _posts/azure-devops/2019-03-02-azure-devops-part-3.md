@@ -81,9 +81,9 @@ The first thing we need to do in our build phase is to copy the ARM template fil
 4. Enter ***.json** in the contents field. This will grab all json files located in the source folder.
 5. Enter `$(Build.ArtifactStagingDirectory)` in the target folder. This is a [special variable](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml) used to indicate the location of the staging directory that is accessible by the build agents
 
-### Publish pipeline artifact
+### Publish artifact
 
-The **publishing** task will take all of the files in a given directory, zip them up, and make them available to the release pipeline as an **artifact**. By default, this is placed in a directory called `drop`.
+The **publish artifact** task will take all of the files in a given directory, zip them up, and make them available to the release pipeline as an **artifact**. By default, this is placed in a directory called `drop`.
 
 1. Click the `+` icon to add a new task
 2. Add the **Publish Artifact** task
