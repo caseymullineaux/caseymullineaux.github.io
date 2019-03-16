@@ -215,7 +215,7 @@ Edit `azuredeploy.json` to deploy something simple, like a storage account.
     "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "phoenixprojectstg9001",
+            "name": "phoenixprojectdev",
             "location": "[resourceGroup().location]",
             "apiVersion": "2018-07-01",
             "sku": {
