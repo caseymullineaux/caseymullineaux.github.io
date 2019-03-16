@@ -6,11 +6,11 @@ author: Casey Mullineaux
 cover: '/images/posts/azure-devops/part3/part3-buildsummary.png'
 tags: arm azure devops
 ---
-A build pipeline is typically used during software development to "build" the application from source code. In basic terms, this means taking the source code, running it through a compiler and producing an **artifact**. For example, if you take some C# source and run it through the .NET compiler, you'd get an executable or dll as an artifact at the other end. 
+A **build pipeline** is typically used during software development to "build" the application from source code. In basic terms, this means taking the source code, running it through a compiler and producing an **artifact**. For example, if you take some C# source code and run it through the .NET compiler, you'd likely get an executable or dll as an artifact at the other end. 
 
-One of the other primary functions of the build stage is to **test** the code. During software development, developers will create hundreds, sometimes thousands of tests for their code to ensure it's functioning correctly whenever a change is made. Executing tests during the build phase means that when a test fails, the build phase will also fail, ensuring that "unsafe" code never passes through to the next stages of software release. This is often referred to as "breaking the build".
+One of the other primary functions of the build stage is to **test** the code *quality*. During software development, developers will create hundreds, sometimes thousands of tests for their code to ensure it's functioning as expected whenever a change is made. Executing tests during the build phase means that when a test fails, the build phase will also fail ensuring that "unsafe" code never passes through to the next stages of software release. This is often referred to as "breaking the build".
 
-Automating the testing of code and the compilation of code, is known as "Continuous Integration" or "CI".
+Automating the compilation of code and testing code quality, is known as **Continuous Integration** or "CI".
 
 ___ 
 
@@ -38,8 +38,6 @@ Now that we have a git repo [that we created in Part 1]({% post_url /azure-devop
 <source src="/images/posts/azure-devops/part3/part3-video1.mkv">
 Your browser does not support the video tag.
 </video>
-
-# Build Pipeline
 
 The first box at the top of this page that is labelled **Pipeline**, is where we configure the global settings of this build pipeline. We can set it's name, the agent pool the builds will execute on.
 
@@ -100,11 +98,11 @@ When the build completes, you can view the contents of the artifact that was pro
 Your browser does not support the video tag.
 </video>
 
-## Build summary 
+## Build logs 
 
-The build summary shows all the commands that are being executed on the build agent in near real time. 
+The build logs shows all the commands that are being executed on the build agent in near real time. 
 
-![build summary](/images/posts/azure-devops/part3/part3-buildsummary.png)
+![build logs](/images/posts/azure-devops/part3/part3-buildlogs.png)
 
 Let's go one level deeper in the layers of abstraction and break down what's happening on the agent.
 
@@ -122,7 +120,7 @@ This step applies any configuration settings to the agent.
 
 ### Initialized Job 
 
-This step downloads all information needed for the jobs we want the agent to execute.
+This step downloads all the task information needed for the jobs we configured, and will be passed onto the agent to execute.
 
 ![image05](/images/posts/azure-devops/part3/part3-image5.png)
 
@@ -184,7 +182,7 @@ A build **trigger** is a condition that is met in order to automatically start a
 In order to create a build automatically whenever our source code changes, we'll need to configure a CI trigger on the build we just created.
 
 1. Navigate to: **Pipelines --> Builds**
-2. Select the build, and click **Edit**
+2. Select the build and click **Edit**
 3. Click the **Triggers** tab
 4. Under `Continuous Integration` click the **Enable continuous integration** checkbox
 5. Click Save & Queue --> Save
