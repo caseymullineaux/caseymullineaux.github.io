@@ -10,7 +10,7 @@ A build pipeline is typically used during software development to "build" the ap
 
 One of the other primary functions of the build stage is to **test** the code. During software development, developers will create hundreds, sometimes thousands of tests for their code to ensure it's functioning correctly whenever a change is made. Executing tests during the build phase means that when a test fails, the build phase will also fail, ensuring that "unsafe" code never passes through to the next stages of software release. This is often referred to as "breaking the build".
 
-Automating the testing of code and the compilation of code, known as "Continuous Integration" or "CI".
+Automating the testing of code and the compilation of code, is known as "Continuous Integration" or "CI".
 
 ___ 
 
