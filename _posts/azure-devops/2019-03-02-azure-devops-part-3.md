@@ -195,7 +195,10 @@ Your browser does not support the video tag.
 
 Done! It's that easy.
 
-Now lets try it out. 
+# Test the automated build
+
+Lets try it out!
+
 1. Back in VSCode, edit the ARM template to add a comment to the storage account.
 
 ```json
@@ -208,7 +211,7 @@ Now lets try it out.
         {
             "comments": "Testing CI trigger on build pipeline",
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "phoenixprojectstg9001",
+            "name": "phoenixprojectdev",
             "location": "[resourceGroup().location]",
             "apiVersion": "2018-07-01",
             "sku": {
