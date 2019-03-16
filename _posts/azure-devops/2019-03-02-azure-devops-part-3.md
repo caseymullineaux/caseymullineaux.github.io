@@ -21,7 +21,7 @@ When it comes to ARM templates, all we have as our code is a json document. Ther
 
 In this post, I will show you how to:
 1. Create a build pipeline
-2. Configure agents, jobs and tasks
+2. Configure build agents, jobs and tasks
 3. Configure an automatic trigger to execute a build when your source code changes
 
 # Create a build pipeline
