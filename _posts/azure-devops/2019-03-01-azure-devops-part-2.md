@@ -267,8 +267,11 @@ Continue to Part 3 - Builds (coming soon)
 
 - [Part 1 - Getting Started with Azure DevOps]({% post_url /azure-devops/2019-01-11-azure-devops-part-1 %})
 - Part 2 - Source Control
-- [Part 3 - Build pipeline]({% post_url /azure-devops/2019-03-02-azure-devops-part-3 %})
-- Part 4 - Releases (coming soon)
+- [Part 3 - Creating a build pipeline]({% post_url /azure-devops/2019-03-02-azure-devops-part-3 %})
+- [Part 4 - Deploying infrastructure](({% post_url /azure-devops/2019-03-17-azure-devops-part-4 %}))
+- Part 5 - Parameter files and pipeline variables (coming soon)
 - Part 5 - Testing the build with Pester (coming soon)
 - Part 6 - Testing the release with Pester (coming soon)
+
+
 

@@ -3,7 +3,7 @@ layout: post
 title: 'Infrastructure as code with Azure DevOps - Part 3: Build Pipeline'
 date: 2019-03-02
 author: Casey Mullineaux
-cover: '/images/posts/azure-devops/part3/part3-buildsummary.png'
+cover: '/images/posts/azure-devops/part3/part3-buildlogs.png'
 tags: arm azure devops
 ---
 A **build pipeline** is typically used during software development to "build" the application from source code. In basic terms, this means taking the source code, running it through a compiler and producing an **artifact**. For example, if you take some C# source code and run it through the .NET compiler, you'd likely get an executable or dll as an artifact at the other end. 
@@ -240,8 +240,10 @@ Continue to Part 4 - Release Pipeline (coming soon) where we will deploy the ARM
 ---
 
 - [Part 1 - Getting Started with Azure DevOps]({% post_url /azure-devops/2019-01-11-azure-devops-part-1 %})
+%})
 - [Part 2 - Source Control]({% post_url /azure-devops/2019-03-01-azure-devops-part-2 %})
-- Part 3 - Build Pipeline
-- Part 4 - Release Pipeline (coming soon)
+- Part 3 - Creating a build pipeline
+- [Part 4 - Deploying infrastructure](({% post_url /azure-devops/2019-03-17-azure-devops-part-4 %}))
+- Part 5 - Parameter files and pipeline variables (coming soon)
 - Part 5 - Testing the build with Pester (coming soon)
 - Part 6 - Testing the release with Pester (coming soon)
