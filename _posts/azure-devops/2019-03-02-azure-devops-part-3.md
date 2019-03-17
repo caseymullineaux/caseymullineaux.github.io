@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Infrastructure as code with Azure DevOps - Part 3: Build Pipeline'
+title: 'Infrastructure as code with Azure DevOps - Part 3: Creating a build pipeline'
 date: 2019-03-02
 author: Casey Mullineaux
 cover: '/images/posts/azure-devops/part3/part3-buildlogs.png'
