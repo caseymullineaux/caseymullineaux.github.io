@@ -219,7 +219,7 @@ We have our ARM templates version controlled in source control, that when change
 
 From code change to resource deployment with zero clicks. Now we're truly living the **infrastructure-as-code** dream.
 
-Continue to Part 5 - Parameters files and pipeline variables (coming soon) where I'll demonstrate how to customise releases for each stage
+Continue to Part 5 - Parameters files and pipeline variables (coming soon) where I'll demonstrate how to customize releases for each stage
 
 ---
 
