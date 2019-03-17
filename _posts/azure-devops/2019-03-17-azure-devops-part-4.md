@@ -67,7 +67,7 @@ Before we can access the ARM template in our release tasks, we need to link the 
 6. Click **Add**
 
 <video width="800" height="600" controls> 
-<source src="/images/posts/azure-devops/part4/part4-video2.mp4" type="video/mp4">
+<source src="/images/posts/azure-devops/part4/Part4-video2.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
@@ -87,7 +87,7 @@ Your browser does not support the video tag.
 12. **Enter a comment** and click **Save**
 
 <video width="800" height="600" controls> 
-<source src="/images/posts/azure-devops/part4/part4-video3.mp4" type="video/mp4">
+<source src="/images/posts/azure-devops/part4/Part4-video3.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
@@ -104,7 +104,7 @@ Clicking on the **stage** shows a summary of each step of the release.
 Clicking on the **deployment status**  shows the release logs
 
 <video width="800" height="600" controls> 
-<source src="/images/posts/azure-devops/part4/part4-video4.mp4" type="video/mp4">
+<source src="/images/posts/azure-devops/part4/Part4-video4.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
@@ -162,7 +162,7 @@ Just like the CI trigger on our build, we can enable a CD trigger to start a rel
 6. **Enter a comment** and click **Save**
 
 <video width="800" height="600" controls> 
-<source src="/images/posts/azure-devops/part4/part4-video5.mp4" type="video/mp4">
+<source src="/images/posts/azure-devops/part4/Part4-video5.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video>
 
