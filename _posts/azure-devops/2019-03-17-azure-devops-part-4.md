@@ -32,7 +32,7 @@ In this post, I will show you how to:
 7. **Enter a comment** and click **Save**
 
 <video width="800" height="600" controls> 
-<source src="/images/posts/azure-devops/part4/part4-video1.mkv">
+<source src="/images/posts/azure-devops/part4/Part4-video1.mkv">
 Your browser does not support the video tag.
 </video>
 
