@@ -1,103 +1,90 @@
----
-layout: default
-home-title: Casey Mullineaux
-description: Learning new things, one mistake at a time
-header-img: /assets/img/hero3.jpg
----
+<!DOCTYPE html>
+<html>
 
-{% include header.html %}
+<head>
+    <meta http-equiv="Refresh" content="10;URL=http://mullineaux.com.au">
+    <meta charset="UTF-8">
+    <title>PLEASE NOTE NEW ADDRESS</title>
+    <meta name="description" content="My site has moved! Please note the new address.">
 
-<div class="g-banner home-banner {{ site.theme-color | prepend: 'banner-theme-' }}" data-theme="{{ site.theme-color }}"
-    style="{% if page.header-img %}background: url({{ page.header-img | prepend: site.baseurl }}) no-repeat center center; background-size: cover;{% endif %}">
-    <h2>{{ page.home-title }}</h2>
-    <h3>{{ page.description }}</h3>
-</div>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 
-<main class="g-container home-content">
-    <div class="article-list">
-        {% for post in paginator.posts %}
-        <article class="article-item">
-            {% if post.cover %}
-            <div class="post-cover">
-                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}"></a>
-                <img src="{{ post.cover }}" href="{{ post.url | prepend: site.baseurl }}" alt="">
-            </div>
-            {% endif %}
-            <section class="post-preview">
-                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title }}"></a>
-                <h2 class="post-title">{{ post.title }}</h2>
-                {% if post.subtitle %}
-                <h3 class="post-subtitle">{{ post.subtitle }}</h3>
-                {% endif %}
-                {% if post.subtitle.size==0 or post.subtitle==nil %}
-                <p class="post-excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 1024}}</p>
-                {% endif %}
-            </section>
-            <footer class="post-meta">
-                <div class="post-tags">
-                    {% if post.tags.size > 0 %}
-                    {% for tag in post.tags %}
-                    <a href={{ "tags.html#" | append: tag | pretend: site.baseurl}} class="post-tag">{{ tag }}</a>
-                    {% endfor %}
-                    {% endif %}
-                </div>
-                <time class="post-date" datetime="{{ post.date | date:"%y-%m-%d" }}">{{ post.date | date_to_string }}</time>
-            </footer>
-        </article>
-        {% endfor %}
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
 
-        {% if paginator.total_pages > 1 %}
-        {% include pageNav.html %}
-        {% endif %}
+    <style>
+        body {
+            font-family: 'Noto Sans', Arial, serif;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.618em;
+            background: #464646;
+            background-size: cover;
+        }
 
-    </div>
+        h2 {
+            font-family: 'Noto Sans', Arial, serif;
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 1.618em;
+        }
 
-    <aside class="g-sidebar-wrapper">
-        <div class="g-sidebar">
-            <section class="author-card">
-                <div class="avatar">
-                    <a href="/about/"><img src="{{ site.avatar | prepend: site.baseurl }}" alt=""></a>
-                </div>
-                <div class="author-name" rel="author">{{ site.author }}</div>
-                <div class="bio">
-                    <p>{{ site.bio }}</p>
-                </div>
-                {% if site.sns.size > 0 %}
-                <ul id="sns-links" class="sns-links">
-                    {% for s in site.sns %}
-                    <li>
-                        <a href="{{ s[1] }}" target="_blank">
-                            <i class="iconfont icon-{{ s[0] }}"></i>
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-            </section>
+        section {
+            max-width: 800px;
+            margin: 8% auto 1em auto;
+            background-color: #222;
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+            /* For IE8 and earlier */
+            color: #fff;
+            padding: 1em 5%;
+        }
 
+        a {
+            color: #00CC66;
+        }
 
-            {% if site.recommend-tags and site.tags.size>0 %}
-            <section class="tags-card">
-                {% for tag in site.tags %}
-                {% if forloop.index > site.recommend-condition-size %}
-                {% break %}
-                {% endif %}
-                <a href="{{ "tags.html#" | append: tag[0] | prepend: site.baseurl }}" class="tag">{{ tag[0]}}</a>
-                {% endfor %}
-            </section>
-            {% endif %}
-        </div>
+        a:focus {
+            outline: none;
+            outline-offset: inherit;
+        }
 
-        {% if site.search %}
-        <div class="search-card">
-            <input id="search_input" type="text" placeholder="Search..." autocomplete="off">
-            <i class="iconfont icon-search"></i>
-            <div class="search_result"></div>
-        </div>
-        {% endif %}
+        @media (max-device-width: 1027px) {
 
-    </aside>
+            body {
+                text-align: center;
+                font-size: larger;
+            }
 
-</main>
+            section {
+                max-width: 90%;
+            }
 
-{% include footer.html %}
+        }
+
+        @media (max-device-width: 640px) {
+            section {
+                max-width: 97%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <h2>My site has moved!</h2>
+
+        <h3>The new web address for this page is <a href="https://mullineaux.com.au">https://mullineaux.com.au</a></h3>
+        <h3>...You will be transferred to the new site in a moment...</h3>
+
+        <p>If you have waited more than a few seconds and you are still seeing this message, please click on the link
+            above! Thank you.</p>
+    </section>
+
+</body>
+
+</html>
