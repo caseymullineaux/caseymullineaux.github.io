@@ -1,1 +1,0 @@
-Using [H2O theme](https://github.com/eastpiger/ghost-theme-H2O)
